@@ -16,7 +16,7 @@ void loop() {
         char command = Serial.read();
         if (command == 'r') {
             compass.resetHeading();
-            Serial.println("Compass reset!");
+            Serial.println("Compass reset to current position!");
         }
     }
 
