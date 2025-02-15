@@ -2,22 +2,23 @@
 #define CMPS14_H
 
 #include <Arduino.h>
-#include <Wire.h>  // Include Wire library for I2C
+#include <Wire.h>
 
 class CMPS14 {
 private:
-    int address;           // I2C Address of CMPS14
-    int initialAngle;      // Offset for resetting heading
-    int readRawAngle();    // Internal function to read raw data
+    int address;
+    int initialAngle;
+    int readRawAngle();
 
 public:
-    CMPS14(int i2cAddress = 0x60);  // Constructor with default address
+    CMPS14(int i2cAddress = 0x60);
 
-    void begin();               // Initialize compass
-    int getHeading();           // Get current heading (CW)
-    int getHeadingCCW();        // Get counterclockwise heading (CCW)
-    void resetHeading();        // Reset heading offset
-    void printHeading();        // Print heading data
+    void begin();
+    int getHeading();       // Get heading CW
+    int getHeadingCCW();    // Get heading CCW
+    void resetHeading();    // Reset heading to current
+    void printHeading();    // Print heading data
+    int shiftHeading(int angleOffset); // 🔹 New name: shiftHeading
 };
 
 #endif

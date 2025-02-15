@@ -1,6 +1,5 @@
 #include <CMPS14.h>
 
-// Create CMPS14 object
 CMPS14 compass;
 
 void setup() {
@@ -9,16 +8,12 @@ void setup() {
 }
 
 void loop() {
-    compass.printHeading();  // Print heading data
+    compass.printHeading();
 
-    // Reset heading when user presses 'r' in Serial Monitor
-    if (Serial.available()) {
-        char command = Serial.read();
-        if (command == 'r') {
-            compass.resetHeading();
-            Serial.println("Compass reset to current position!");
-        }
-    }
+    // Example: Shift heading by +45°
+    int newHeading = compass.shiftHeading(45);
+    Serial.print("Heading + 45°: ");
+    Serial.println(newHeading);
 
     delay(500);
 }
