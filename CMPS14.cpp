@@ -40,7 +40,7 @@ int CMPS14::getHeadingCCW() {
 void CMPS14::resetHeading() {
     int rawAngle = readRawAngle();
     if (rawAngle != -1) {
-        initialAngle = rawAngle + 90;
+        initialAngle = rawAngle;
     }
 }
 
@@ -61,3 +61,4 @@ int CMPS14::shiftHeading(int angleOffset) {
 
     return outputAngle;
 }
+
